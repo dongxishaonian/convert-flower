@@ -24,14 +24,16 @@ public class CamelOrUnderScoreAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull final AnActionEvent e) {
+        final Caret caret = e.getRequiredData(CommonDataKeys.CARET);
         final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
         final Project project = e.getRequiredData(CommonDataKeys.PROJECT);
         final Document document = editor.getDocument();
-        Caret primaryCaret = editor.getCaretModel().getPrimaryCaret();
-        int start = primaryCaret.getSelectionStart();
-        int end = primaryCaret.getSelectionEnd();
+        caret.selectWordAtCaret(false);
 
-        String selectedText = primaryCaret.getSelectedText();
+        int start = caret.getSelectionStart();
+        int end = caret.getSelectionEnd();
+
+        String selectedText = caret.getSelectedText();
         if (selectedText != null && selectedText.length() < 100) {
             String targetText = handleCaseConvert(selectedText);
 
@@ -111,7 +113,7 @@ public class CamelOrUnderScoreAction extends AnAction {
         final Editor editor = e.getData(CommonDataKeys.EDITOR);
         // Set visibility and enable only in case of existing project and editor and if a selection exists
         e.getPresentation().setEnabledAndVisible(
-                project != null && editor != null && editor.getSelectionModel().hasSelection()
+                project != null && editor != null
         );
     }
 
