@@ -61,13 +61,12 @@ public class CamelOrUnderScoreAction extends AnAction {
     }
 
     private String convertToUnderScoreCase(StringBuilder replaceText, char[] chars) {
-        replaceText.append(chars[0]);
-        IntStream.range(1, chars.length).forEach(i -> {
-            if (isSmall(chars[i])) {
-                replaceText.append(chars[i]);
-            } else if (isBig(chars[i])) {
+        IntStream.range(0, chars.length).forEach(i -> {
+            if (isBig(chars[i])) {
                 replaceText.append('_');
                 replaceText.append(convertSmall(chars[i]));
+            }else {
+                replaceText.append(chars[i]);
             }
         });
 
@@ -75,9 +74,7 @@ public class CamelOrUnderScoreAction extends AnAction {
     }
 
     private String convertToCamelCase(StringBuilder replaceText, char[] chars) {
-        replaceText.append(chars[0]);
-
-        for (int i = 1; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             if (chars[i] == UNDER_SCORE) {
                 if (isSmall(chars[i + 1])) {
                     replaceText.append(convertBig(chars[i + 1]));
