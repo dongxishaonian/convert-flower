@@ -14,15 +14,16 @@
     <!-- Text to display as description on Preferences/Settings | Plugin page -->
     <description>
         <![CDATA[
-            这是一个简易的命名风格转换器，可以在驼峰和下划线风格之前进行转换 <br>
+            这是一个简易的命名风格转换器，可以在驼峰和下划线风格之间进行转换 <br>
             使用方式：<br>
-            1.选中要转换的字符串,快捷键control alt G <br>
-            2.选中要转换的字符串,右键,点击"Convert It" 选项<br>
+            1.选中要转换的字符串,快捷键control alt G ；<br>
+            2.选中要转换的字符串,右键,点击"Convert It" 选项 ；<br>
     ]]>
     </description>
     <change-notes>
         <![CDATA[
       <ul>
+        <li><b>0.0.6</b> 优化插件图标的显示，优化文案.</li>
         <li><b>0.0.2</b> 优化一些文案提示.</li>
         <li><b>0.0.1</b> initialization.</li>
       </ul>
@@ -30,7 +31,7 @@
     </change-notes>
 
     <!-- Text to display as company information on Preferences/Settings | Plugin page -->
-    <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
+    <vendor>Tech Flower</vendor>
 
     <actions>
         <action id="EditorBasics.CamelOrUnderScoreAction"

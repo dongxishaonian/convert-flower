@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'cn.techflower.editor'
-version '0.0.3'
+version '0.0.6'
 
 sourceCompatibility = 1.8
 
@@ -20,7 +20,7 @@ intellij {
 }
 
 publishPlugin {
-  channels 'alpha'
+//  channels 'alpha'
   token = System.getenv("org.gradle.project.intellijPublishToken")
 }
 
