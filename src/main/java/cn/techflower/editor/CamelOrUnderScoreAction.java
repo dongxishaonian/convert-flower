@@ -1,5 +1,6 @@
 package cn.techflower.editor;
 
+import cn.techflower.editor.enums.NamingStyleEnum;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -10,17 +11,9 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Locale;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.IntStream;
+import java.util.Optional;
 
 public class CamelOrUnderScoreAction extends AnAction {
-
-    private static final char a = 'a';
-    private static final char z = 'z';
-    private static final char A = 'A';
-    private static final char Z = 'Z';
-    private static final char UNDER_SCORE = '_';
 
     @Override
     public void actionPerformed(@NotNull final AnActionEvent e) {
@@ -42,68 +35,13 @@ public class CamelOrUnderScoreAction extends AnAction {
     }
 
     private String handleCaseConvert(String originText) {
-        StringBuilder replaceText = new StringBuilder();
-        char[] chars = originText.toCharArray();
-        if (isUnderScoreCase(originText)) {
-            return convertToCamelCase(replaceText, chars);
+        Optional<NamingStyleEnum> namingStyleEnumOptional = NamingStyleEnum.getNamingStyleEnum(originText);
+        if (namingStyleEnumOptional.isPresent()) {
+            NamingStyleEnum namingStyleEnum = namingStyleEnumOptional.get();
+            return namingStyleEnum.nextNamingStyle().getConverter().convert(originText);
         }
-        if (isCamelCase(originText)) {
-            return convertToUnderScoreCase(replaceText, chars);
-        }
+
         return originText;
-    }
-
-    private boolean isUnderScoreCase(String text) {
-        return text.contains("_") && text.toLowerCase(Locale.ROOT).equals(text);
-    }
-
-
-    private boolean isCamelCase(String text) {
-        return !text.toLowerCase(Locale.ROOT).equals(text) && !text.contains("_");
-    }
-
-    private String convertToUnderScoreCase(StringBuilder replaceText, char[] chars) {
-        IntStream.range(0, chars.length).forEach(i -> {
-            if (isBig(chars[i])) {
-                replaceText.append('_');
-                replaceText.append(convertSmall(chars[i]));
-            }else {
-                replaceText.append(chars[i]);
-            }
-        });
-
-        return replaceText.toString();
-    }
-
-    private String convertToCamelCase(StringBuilder replaceText, char[] chars) {
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == UNDER_SCORE) {
-                if (isSmall(chars[i + 1])) {
-                    replaceText.append(convertBig(chars[i + 1]));
-                    i++;
-                }
-            } else {
-                replaceText.append(chars[i]);
-            }
-        }
-
-        return replaceText.toString();
-    }
-
-    private boolean isSmall(char aChar) {
-        return aChar >= a && aChar <= z;
-    }
-
-    private boolean isBig(char aChar) {
-        return aChar >= A && aChar <= Z;
-    }
-
-    private char convertBig(char aChar) {
-        return (char) (aChar - 32);
-    }
-
-    private char convertSmall(char aChar) {
-        return (char) (aChar + 32);
     }
 
     @Override
