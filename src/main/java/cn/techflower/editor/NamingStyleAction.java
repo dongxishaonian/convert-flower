@@ -9,11 +9,14 @@ import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-public class CamelOrUnderScoreAction extends AnAction {
+public class NamingStyleAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull final AnActionEvent e) {
@@ -38,7 +41,11 @@ public class CamelOrUnderScoreAction extends AnAction {
         Optional<NamingStyleEnum> namingStyleEnumOptional = NamingStyleEnum.getNamingStyleEnum(originText);
         if (namingStyleEnumOptional.isPresent()) {
             NamingStyleEnum namingStyleEnum = namingStyleEnumOptional.get();
-            return namingStyleEnum.nextNamingStyle().getConverter().convert(originText);
+
+            List<String> textList = namingStyleEnum.split(originText).stream()
+                    .filter(StringUtils::isNoneBlank)
+                    .collect(Collectors.toList());
+            return namingStyleEnum.nextNamingStyle().getConverter().convert(textList);
         }
 
         return originText;

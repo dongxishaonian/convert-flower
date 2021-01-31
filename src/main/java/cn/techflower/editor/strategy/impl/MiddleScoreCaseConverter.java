@@ -4,10 +4,10 @@ import cn.techflower.editor.strategy.Converter;
 
 import java.util.List;
 
-public class UnderScoreCaseConverter implements Converter {
+public class MiddleScoreCaseConverter implements Converter {
 
     @Override
     public String convert(List<String> originTextList) {
-        return String.join("_", originTextList);
+        return String.join("-", originTextList);
     }
 }

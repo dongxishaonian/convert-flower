@@ -1,5 +1,7 @@
 package cn.techflower.editor.strategy;
 
+import java.util.List;
+
 public interface Converter {
-    String convert(String originText);
+    String convert(List<String> originTextList);
 }

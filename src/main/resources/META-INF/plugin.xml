@@ -35,7 +35,7 @@
 
     <actions>
         <action id="EditorBasics.CamelOrUnderScoreAction"
-                class="cn.techflower.editor.CamelOrUnderScoreAction"
+                class="cn.techflower.editor.NamingStyleAction"
                 text="Convert It"
                 description="Convert to camelCase or underScoreCase."
                 icon="SdkIcons.Sdk_default_icon">

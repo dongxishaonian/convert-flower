@@ -14,11 +14,17 @@ public class AlphabetUtils {
     }
 
     public static char convertBig(char aChar) {
-        return (char) (aChar - 32);
+        if (isSmall(aChar)) {
+            return (char) (aChar - 32);
+        }
+        return aChar;
     }
 
     public static char convertSmall(char aChar) {
-        return (char) (aChar + 32);
+        if (isBig(aChar)) {
+            return (char) (aChar + 32);
+        }
+        return aChar;
     }
 
     public static boolean isUnderScoreCase(String text) {
