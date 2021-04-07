@@ -1,11 +1,11 @@
 package cn.techflower.editor.enums;
 
-import java.util.List;
+import com.google.common.base.CaseFormat;
 
 public interface Recognition {
     boolean recognize(String originText);
 
     NamingStyleEnum nextNamingStyle();
 
-    List<String> split(String origin);
+    CaseFormat getCaseFormat();
 }

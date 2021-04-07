@@ -32,7 +32,11 @@ public class AlphabetUtils {
     }
 
 
-    public static boolean isCamelCase(String text) {
-        return !text.toLowerCase(Locale.ROOT).equals(text) && !text.contains("_");
+    public static boolean isSmallCamelCase(String text) {
+        return text.matches("[a-z]+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?");
+    }
+
+    public static boolean isBigCamelCase(String text){
+        return  text.matches("([A-Z][a-z0-9]+)((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?");
     }
 }

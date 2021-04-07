@@ -1,13 +1,13 @@
 package cn.techflower.editor.strategy.impl;
 
 import cn.techflower.editor.strategy.Converter;
-
-import java.util.List;
+import com.google.common.base.CaseFormat;
 
 public class MiddleScoreCaseConverter implements Converter {
 
+
     @Override
-    public String convert(List<String> originTextList) {
-        return String.join("-", originTextList);
+    public  String convert(CaseFormat currentCase, String originText) {
+        return null;
     }
 }

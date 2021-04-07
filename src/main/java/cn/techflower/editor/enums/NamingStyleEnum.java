@@ -4,15 +4,16 @@ import cn.techflower.editor.strategy.Converter;
 import cn.techflower.editor.strategy.impl.BigCamelCaseConverter;
 import cn.techflower.editor.strategy.impl.UnderScoreCaseConverter;
 import cn.techflower.editor.utils.AlphabetUtils;
+import com.google.common.base.CaseFormat;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.Optional;
 
 public enum NamingStyleEnum implements Recognition {
     BIG_CAMEL_CASE(new BigCamelCaseConverter()) {
         @Override
         public boolean recognize(String originText) {
-            return AlphabetUtils.isCamelCase(originText);
+            return AlphabetUtils.isBigCamelCase(originText);
         }
 
         @Override
@@ -21,19 +22,11 @@ public enum NamingStyleEnum implements Recognition {
         }
 
         @Override
-        public List<String> split(String origin) {
-            List<String> splitStringList = new ArrayList<>();
-            int start = 0;
-            for (int i = 0; i < origin.length(); i++) {
-                if (AlphabetUtils.isBig(origin.charAt(i))) {
-                    splitStringList.add(origin.substring(start, i).toLowerCase(Locale.ROOT));
-                    start = i;
-                }
-            }
-            splitStringList.add(origin.substring(start).toLowerCase(Locale.ROOT));
-            return splitStringList;
+        public CaseFormat getCaseFormat() {
+            return CaseFormat.UPPER_CAMEL;
         }
     },
+
     UNDER_SCORE_CASE(new UnderScoreCaseConverter()) {
         @Override
         public boolean recognize(String originText) {
@@ -46,8 +39,8 @@ public enum NamingStyleEnum implements Recognition {
         }
 
         @Override
-        public List<String> split(String origin) {
-            return Arrays.stream(origin.split("_")).collect(Collectors.toList());
+        public CaseFormat getCaseFormat() {
+            return CaseFormat.LOWER_UNDERSCORE;
         }
     };
 

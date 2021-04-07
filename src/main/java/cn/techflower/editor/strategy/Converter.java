@@ -1,7 +1,7 @@
 package cn.techflower.editor.strategy;
 
-import java.util.List;
+import com.google.common.base.CaseFormat;
 
 public interface Converter {
-    String convert(List<String> originTextList);
+    String convert(CaseFormat currentCase, String originText);
 }
