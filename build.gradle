@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'cn.techflower.editor'
-version '0.0.6'
+version '0.0.9'
 
 sourceCompatibility = 1.8
 
@@ -14,7 +14,7 @@ repositories {
   mavenCentral()
 }
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
+// See https://github.com/jet-brains/gradle-intellij-plugin/
 intellij {
   version = '2020.3'
 }

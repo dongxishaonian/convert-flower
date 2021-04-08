@@ -16,14 +16,16 @@
         <![CDATA[
             This is a simple naming style converter that can convert between multiple naming styles <br>
              How to use:<br>
-             1. Select the string to be converted, the shortcut key control alt G; <br>
-             2. Select the string to be converted, right-click, and click the "Convert It" option;
+             <b>1.</b> Select the string to be converted, the shortcut key <b>control alt G;</b> <br>
+             <b>2.</b> Select the string to be converted, <b>right-click</b>, and click the <b>"Convert It"</b> option;<br> <br>
              <b>Note</b>: The length of the field name cannot exceed 100 characters! <br>
     ]]>
     </description>
     <change-notes>
         <![CDATA[
       <ul>
+        <li><b>0.0.9</b> Add underScoreCase and hyphenCase converter. </li>
+        <li><b>0.0.8</b> Optimize the code. </li>
         <li><b>0.0.6</b> Optimize the display of plug-in icons and optimize the copywriting. </li>
         <li><b>0.0.2</b> Optimize some copywriting tips. </li>
         <li><b>0.0.1</b> initialization.</li>

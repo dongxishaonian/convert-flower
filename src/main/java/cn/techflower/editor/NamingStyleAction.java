@@ -8,6 +8,7 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,16 +18,16 @@ public class NamingStyleAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull final AnActionEvent e) {
-        final Caret caret = e.getRequiredData(CommonDataKeys.CARET);
         final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
         final Project project = e.getRequiredData(CommonDataKeys.PROJECT);
         final Document document = editor.getDocument();
-        caret.selectWordAtCaret(false);
 
-        int start = caret.getSelectionStart();
-        int end = caret.getSelectionEnd();
+        SelectionModel selectionModel = editor.getSelectionModel();
 
-        String selectedText = caret.getSelectedText();
+        int start = selectionModel.getSelectionStart();
+        int end = selectionModel.getSelectionEnd();
+
+        String selectedText = selectionModel.getSelectedText();
         if (selectedText != null && selectedText.length() < 100) {
             String targetText = handleCaseConvert(selectedText);
 
