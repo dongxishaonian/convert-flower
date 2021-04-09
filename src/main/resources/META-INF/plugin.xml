@@ -14,16 +14,18 @@
     <!-- Text to display as description on Preferences/Settings | Plugin page -->
     <description>
         <![CDATA[
+            <b>OneDemo ➡️ oneDemo ➡️ one_demo ➡️ one-demo</b>
+            <br>
             This is a simple naming style converter that can convert between multiple naming styles <br>
              How to use:<br>
              <b>1.</b> Select the string to be converted, the shortcut key <b>control alt G;</b> <br>
-             <b>2.</b> Select the string to be converted, <b>right-click</b>, and click the <b>"Convert It"</b> option;<br> <br>
+             <b>2.</b> Select the string to be converted, <b>right-click</b>, and click the <b>"Convert It"</b> option;<br>
              <b>Note</b>: The length of the field name cannot exceed 100 characters! <br>
              <br><br>
             这是一个简单的命名风格转换器，可以在多种命名风格之间进行转换 <br>
              怎么使用:<br>
              <b>1.</b> 选中要转换的字段，快捷键： <b>control alt G;</b> <br>
-             <b>2.</b> 选中要转换的字段, <b>鼠标右键</b>, 然后点击 <b>"Convert It"</b> 选项;<br> <br>
+             <b>2.</b> 选中要转换的字段, <b>鼠标右键</b>, 然后点击 <b>"Convert It"</b> 选项;<br>
              <b>注意</b>: 字段的长度不能超过100个字符! <br>
     ]]>
     </description>
