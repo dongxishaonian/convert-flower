@@ -1,6 +1,6 @@
 # 介绍
 
-这是在[**IntelliJ IDEA** ](https://plugins.jetbrains.com/idea)中使用的一个简单的命名风格转换器，可以在多种命名风格之间进行转换。
+这是在[**jetbrains系列产品** ](https://plugins.jetbrains.com)中使用的一个简单的命名风格转换器，可以在多种命名风格之间进行转换。
 
 OneDemo ➡️ oneDemo ➡️ one_demo ➡️ one-demo
 
