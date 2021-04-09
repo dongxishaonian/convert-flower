@@ -32,6 +32,7 @@
     <change-notes>
         <![CDATA[
       <ul>
+        <li><b>0.1.0</b> Optimize the description. </li>
         <li><b>0.0.9</b> Add underScoreCase and hyphenCase converter. </li>
         <li><b>0.0.8</b> Optimize the code. </li>
         <li><b>0.0.6</b> Optimize the display of plug-in icons and optimize the copywriting. </li>
