@@ -16,7 +16,7 @@ repositories {
 
 // See https://github.com/jet-brains/gradle-intellij-plugin/
 intellij {
-  version = '2020.3'
+  version = '2021.2'
 }
 
 publishPlugin {
@@ -31,5 +31,5 @@ buildSearchableOptions {
 patchPluginXml {
   version = project.version
   sinceBuild = '202'
-  untilBuild = '203.*'
+  untilBuild = '212.*'
 }
